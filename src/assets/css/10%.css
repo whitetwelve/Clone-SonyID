@@ -1,0 +1,35 @@
+#hover-nav1{
+    left: 67.4rem
+}
+#hover-nav2{
+    left:71.7rem
+}
+#hover-nav3{
+    left:76rem
+}
+#products-footer{
+    margin-top: -2.3rem
+}
+.spek-footer p {
+    margin-top:-1.5rem;
+}
+.spek-footer .text-md {
+    margin-top : -2.3rem
+}
+.spek-footer .rate img {
+    margin-left:-0.5rem;
+    margin-top : -0.7rem
+}
+#footer-square {
+    width: 38rem
+}
+#top-product {
+    height: 25rem;
+}
+#lastseen-product {
+    margin-left: -15rem
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
