@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../assets/partials/Navbar';
 import StarsRate from "../assets/img/star-rating.png"
-import Airpod from "../assets/img/airpod1.png"
+import SliderReview from '../components/Slider-Review';
 import FavIcon from "../assets/img/icon-fav.png"
 import ShareIcon from "../assets/img/icon-share.png"
 import Rp from "rupiah-format"
 import { dummyProducts } from '../dummies/products-footer';
 import { useParams } from "react-router-dom"
 import axios from 'axios';
+import Slider from '../components/Slider';
 
 const DetailPage = () => {
 
@@ -63,7 +64,7 @@ const DetailPage = () => {
             </div>
             <div className="container content">
                 <form onSubmit={() => handleBuy(productsData)}>
-                    <div className="left-side-product flex">
+                    <div className="left-side-product flex ml-10">
                         <div className="img-product">
                             <img className="ml-4 h-64" src={product?.image} />
                         </div>
@@ -76,10 +77,12 @@ const DetailPage = () => {
                             </div>
                             <div className="rate mt-2 inline">
                                 <img className='w-20 inline' src={StarsRate} />
-                                <p className="inline text-xs cursor-pointer text-blue-700 mr-40">{product?.viewrating}</p>
+                                <p className="inline text-xs cursor-pointer text-blue-700 mr-40 hover:text-blue-500">
+                                    {product?.viewrating}
+                                </p>
                             </div>  
                             <div className="btn-buy inline ml-96">
-                                <button className=' text-white h-14 w-56 px-4 bg-orange-700 hover:bg-orange-800'>
+                                <button className=' text-white h-14 w-56 px-4 bg-orange-700 hover:bg-orange-800' >
                                     Beli
                                 </button>
                             </div>
@@ -93,6 +96,21 @@ const DetailPage = () => {
                                 <p className='ml-96 text-xl font-black'>{Rp.convert(product?.price)}</p>
                             </div>
                         </div>
+                    </div>
+                    <div className="review flex ml-20 mb-5">
+                        <p className='text-sm mr-10 cursor-pointer'>
+                            Spesifikasi & fitur
+                        </p>
+                        <p className='text-sm mr-10 cursor-pointer'>Ulasan</p>
+                        <p className='text-sm cursor-pointer'>Dukungan</p>
+                    </div>
+                    <div className="absolute">
+                        <div className="hover:bg-indigo-500 absolute w-36 h-9 cursor-pointer bottom-3 left-16 opacity-60"/>
+                        <div className="hover:bg-indigo-500 absolute w-24 h-9 cursor-pointer bottom-3 left-52 opacity-60"/>
+                        <div className="hover:bg-indigo-500 absolute w-28 h-9 cursor-pointer bottom-3 left-72 opacity-60"/>
+                    </div>
+                    <div className="list-comment w-full h-screen">
+                        <SliderReview/>
                     </div>
                 </form>
             </div>

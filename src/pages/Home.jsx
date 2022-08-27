@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbar from '../assets/partials/Navbar';
 import Bg from "../assets/img/bg-sony.png"
 import "../assets/css/10%.css"
@@ -68,9 +67,9 @@ const Main = () => {
                                 <p className='text-md font-black cursor-pointer'>{item?.title}
                                 <b>&nbsp; &nbsp; {" > "} </b>
                                 </p>
-                                <div className="rate mb-4">
-                                    <img className='h-12 cursor-pointer inline' src={item?.rating}/>
-                                    <p className='view-rate inline'>{item?.viewrating}</p>
+                                <div className="rate mb-10 w-full">
+                                    <img className='cursor-pointer inline w-28' src={item?.rating}/>
+                                    <p className='view-rate pt-5'>{item?.viewrating}</p>
                                 </div>
                                 <p className='price-products text-slate-600'>{Rp.convert(item?.price)}</p>
                                 <img className="h-4 mt-4 cursor-pointer" src={FavIcon} />
@@ -82,11 +81,11 @@ const Main = () => {
                                 <img className="h-96 ml-28 mt-2 cursor-pointer" src={item?.image} />
                             <div className="spek-footer mt-10">
                                 <p className='text-sm mb-10'>{item?.spec}</p>
-                                <p className='text-md font-black cursor-pointer'>{item?.title}
+                                <p className='text-md font-black cursor-pointer mb-1'>{item?.title}
                                 <b>&nbsp; &nbsp; {" > "} </b>
                                 </p>
-                                <div className="rate mb-4">
-                                    <img className='h-12 cursor-pointer inline' src={item?.rating}/>
+                                <div className="rate mb-6">
+                                    <img className='cursor-pointer w-28 inline' src={item?.rating}/>
                                     <p className='view-rate inline'>{item?.viewrating}</p>
                                 </div>
                                 <p className='price-products'>{Rp.convert(item?.price)}</p>

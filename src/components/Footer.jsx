@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { dataLastSeen } from '../dummies/last-seen-product';
 import "../assets/css/10%.css"
 
 const Footer = () => {
 
-    const [data] = useState(dataLastSeen)
-    console.log(data);
+    const [data, setData] = useState(dataLastSeen)
+    
+    useEffect(() => {
+        setData(dataLastSeen)
+    },[data])
+    
     return (
-        <div className="mt-44">
+        <div className="mt-52">
             <p className='font-black text-2xl ml-16'>PRODUK YANG TERAKHIR DILIHAT</p>
             <div class="grid gap-5 grid-cols-5 mt-4 ml-16">
             {data.map((item, idx) => (

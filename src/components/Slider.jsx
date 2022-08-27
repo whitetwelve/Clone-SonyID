@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -11,7 +11,11 @@ import { initialState } from '../dummies/datas';
 
 const Slider = () => {
 
-    const [data] = useState(initialState)
+    const [data, setData] = useState(initialState)
+
+    useEffect(() => {
+      setData(initialState)
+    },[data])
 
   return (
     <Swiper
