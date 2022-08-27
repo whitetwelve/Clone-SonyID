@@ -17,9 +17,11 @@ const Main = () => {
 
     const move = useNavigate()
 
-    let dummy = useState(dummyProducts)
-    dummy = dummy[0]
-    console.log(dummy);
+    const [dummy, setDummy] = useState(dummyProducts)
+    
+    useEffect(() => {
+        setDummy(dummyProducts)
+    },[dummy])
 
     let topDummy = useState(topProduct)
     topDummy = topDummy[0]

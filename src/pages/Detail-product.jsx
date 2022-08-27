@@ -17,8 +17,6 @@ const DetailPage = () => {
 
     const  { id }   = useParams()
 
-    const [data] = useState(dummyProducts)
-
     const idx = (id - 1)
 
     const product = dummyProducts[idx]

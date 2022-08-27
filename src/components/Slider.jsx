@@ -25,13 +25,12 @@ const Slider = () => {
       onSwiper={(swiper) => console.log(swiper)}
       navigation
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
     >
     {data.map((item) => (
             <SwiperSlide key={item?.id} className="slide ">
                 <div className="slide-content">
-                    <div className="product-img hover:bg-violet-600 font-mono">
-                        <img className="cursor-pointer hover:bg-violet-600" src={item?.image}/>
+                    <div className="product-img font-mono">
+                        <img className="cursor-pointer hover:brightness-110" src={item?.image}/>
                         <div className="absolute top-80">
                             <div className="title-product font-black mt-10 ml-5">{item?.title}</div>
                             <div className="desc-product font-black text-2xl ml-5">{item?.desc}</div>

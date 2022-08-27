@@ -1,5 +1,4 @@
 import Airpod from "../assets/img/airpod1.png"
-import Rating from "../assets/img/star-rating.png"
 import Camera from "../assets/img/picwish.png"
 import Stars4 from "../assets/img/stars4.jpg"
 import Stars5 from "../assets/img/stars5.jpg"
