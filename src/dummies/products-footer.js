@@ -6,9 +6,9 @@ import Icon from "../assets/img/icon-fav.png"
 
 
 export const dummyProducts = [
-    { "title" : "Airpod 3", "image" : Airpod, "price" : 4254999, "spec" : "Airpods gen3", "rating" :Rating, "viewrating" : "(61)" },
-    { "title" : "Airpod 3", "image" : Airpod, "price" : 4254999, "spec" : "Airpods gen3", "rating" :Rating, "viewrating" : "(32)" },
-    { "title" : "Airpod 3", "image" : Airpod, "price" : 4254999, "spec" : "Airpods gen3", "rating" :Rating, "viewrating" : "(48)" }
+    { "id" : 1, "title" : "Airpod 3", "image" : Airpod, "price" : 2450000, "spec" : "Airpods gen3", "rating" :Rating, "viewrating" : "(61 ulasan pelanggan)" },
+    { "id" : 2, "title" : "Airpod 3", "image" : Airpod, "price" : 4200000, "spec" : "Airpods gen3", "rating" :Rating, "viewrating" : "(32 ulasan pelanggan)" },
+    { "id" : 3, "title" : "Airpod 3", "image" : Airpod, "price" : 1500000, "spec" : "Airpods gen3", "rating" :Rating, "viewrating" : "(48 ulasan pelanggan)" }
 ]
 
 export const topProduct = [

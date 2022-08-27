@@ -25,8 +25,9 @@ const Main = () => {
     let topDummy = useState(topProduct)
     topDummy = topDummy[0]
 
-    const [showLogin, setShowLogin] = useState(false)
-    const handleClose = () => setShowLogin(false)
+    const moveToDetail = (id) => {
+        move(`/detail-page/${id}`)
+    }
 
     return (
         <>
@@ -59,7 +60,8 @@ const Main = () => {
                     </div>   
                     <div className='flex'>
                         {dummy.map((item, idx) => (
-                        <div key={idx} className="mt-52 w-44 h-48 mr-10 bg-slate-300 hover:bg-slate-200 duration-300">
+                        <div key={idx} onClick={()=> moveToDetail(item?.id)} 
+                        className="mt-52 w-44 h-48 mr-10 bg-slate-300 hover:bg-slate-200 duration-300">
                             <img id="products-footer" className="cursor-pointer" src={item.image} onClick={() => move('/detail-page')} />
                             <div className="spek-footer">
                                 <p className='text-sm mb-10'>{item?.spec}</p>

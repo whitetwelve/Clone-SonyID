@@ -1,9 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../assets/partials/Navbar';
-import SlideIcon from "../assets/img/presentation.png"
+import StarsRate from "../assets/img/star-rating.png"
 import Airpod from "../assets/img/airpod1.png"
+import FavIcon from "../assets/img/icon-fav.png"
+import ShareIcon from "../assets/img/icon-share.png"
+import Rp from "rupiah-format"
+import { dummyProducts } from '../dummies/products-footer';
+import { useParams } from "react-router-dom"
+import axios from 'axios';
 
 const DetailPage = () => {
+
+    const ttl = "Detail Product"
+    document.title = ttl
+
+    const  { id }   = useParams()
+
+    const [data] = useState(dummyProducts)
+
+    const idx = (id - 1)
+
+    const product = dummyProducts[idx]
+
+    // BUY
+    const [title, setTitle] = useState("")
+    const [price, setPrice] = useState("")
+    const [spec, setSpec] = useState("")
+    const [image, setImage] = useState("")
+    const [productsData, setProductsData] = useState([])
+    console.log(productsData);
+
+    const handleBuy = () => {
+        const datas = {title, price, spec, image}
+        console.log(datas);
+        axios.post("https://api.kontenbase.com/query/api/v1/09ea5e7f-1b32-4c98-9bbf-8bfe0e39ee75/PHONE", datas)
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
     return (
         <div>
             <Navbar/>
@@ -24,9 +62,39 @@ const DetailPage = () => {
                 </div>
             </div>
             <div className="container content">
-                <div className="left-side-product">
-                    <img className="ml-4 h-64" src={Airpod} />
-                </div>
+                <form onSubmit={() => handleBuy(productsData)}>
+                    <div className="left-side-product flex">
+                        <div className="img-product">
+                            <img className="ml-4 h-64" src={product?.image} />
+                        </div>
+                        <div className="mt-14 ml-4">
+                            <div className="title-product">
+                                <p className='text-black text-xl font-mono'>{product?.title}</p>
+                            </div>
+                            <div className="span">
+                                <p className='text-xs text-gray-700'>{product?.spec}</p>
+                            </div>
+                            <div className="rate mt-2 inline">
+                                <img className='w-20 inline' src={StarsRate} />
+                                <p className="inline text-xs cursor-pointer text-blue-700 mr-40">{product?.viewrating}</p>
+                            </div>  
+                            <div className="btn-buy inline ml-96">
+                                <button className=' text-white h-14 w-56 px-4 bg-orange-700 hover:bg-orange-800'>
+                                    Beli
+                                </button>
+                            </div>
+                            <div className="share-fav-icons">
+                                <img className="h-4 cursor-pointer inline" src={FavIcon} />
+                                <p className='text-xs inline ml-2'>Favorit</p>
+                                <img className="h-4 cursor-pointer inline ml-4" src={ShareIcon} />
+                                <p className='text-xs inline ml-2'>Share</p>
+                            </div>
+                            <div className="price ml-96">
+                                <p className='ml-96 text-xl font-black'>{Rp.convert(product?.price)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     ) 
